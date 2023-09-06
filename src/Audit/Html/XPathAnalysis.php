@@ -31,6 +31,8 @@ class XPathAnalysis extends AbstractAnalysis
     {
       $doc = new \DOMDocument();
       $doc->preserveWhiteSpace = false;
+      // Automatically accept minor HTML issues (tags closed improperly, etc.)
+      $doc->recover = true;
       @$doc->loadHTML(file_get_contents($this->getParameter('url')));
 
       $xpath = new \DOMXPath($doc);
