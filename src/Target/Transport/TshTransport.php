@@ -33,7 +33,7 @@ class TshTransport extends SshTransport {
       if (strpos($err, self::ERROR_AMBIGUOUS_HOST_MSG) === false) {
         throw $e;
       }
-      $output = $e->getProcess()->getOutput();
+      $output = $e->getMessage();
       $host = preg_quote($this->sshConfig['Host']);
 
       // Choose the first node found.
