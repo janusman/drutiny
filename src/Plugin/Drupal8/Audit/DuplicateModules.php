@@ -24,7 +24,7 @@ class DuplicateModules extends Audit
         $command = <<<CMD
 find \$DRUSH_ROOT -name '*.info.yml' -type f |\
 grep -Ev '/themes/|/test' |\
-grep -oe '[^/]*\.info.yml' | cut -d'.' -f1 | sort |\
+grep -oe '[^/]*\.info.yml' | sed -e 's/.info.yml//' | sort |\
 uniq -c | sort -nr | awk '{print $2": "$1}'
 CMD;
 
