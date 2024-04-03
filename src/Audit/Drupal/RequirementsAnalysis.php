@@ -17,7 +17,7 @@ class RequirementsAnalysis extends AbstractAnalysis
 {
     public function prepare(Policy $policy): ?string
     {
-      return static::class;  
+      return static::class;
     }
 
     #[DataProvider]
@@ -26,6 +26,7 @@ class RequirementsAnalysis extends AbstractAnalysis
         $list = $this->target->getService('drush')
           ->coreRequirements([
             'format' => 'json',
+            'fields' => 'title,severity,sid,description,value',
           ])
           ->run(function ($output) {
               return TextCleaner::decodeDirtyJson($output);
