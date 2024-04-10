@@ -38,6 +38,7 @@ class SshTransport implements TransportInterface
             $comandline .= ' | base64 --decode | gzip -d';
         }
         $commandline = $this->getRemoteCall() . sprintf(" 'echo %s | base64 --decode | sh'", base64_encode($commandline));
+        $commandline .= ' | sed -z -e \'s/\x1B\[3J\x1Bc//g\'';
         $ssh_command = Process::fromShellCommandline($commandline);
         ProcessUtility::copyConfiguration($command, $ssh_command);
         return $this->localCommand->run($ssh_command, $processor);
