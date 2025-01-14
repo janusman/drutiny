@@ -40,10 +40,7 @@ class Drush implements ServiceInterface
     {
         // Load and cache the remote bin path for Drush.
         $cmd = Process::fromShellCommandline('which ' . implode(' || which ', static::LAUNCHERS));
-        $this->bin = $this->transport->send($cmd, function ($output) {
-            // error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED
-            return '/usr/bin/env php -d error_reporting=24567 ' . trim($output);
-        });
+        $this->bin = $this->transport->send($cmd, fn($output) => trim($output));
     }
 
     public function setUrl(string $url): self
