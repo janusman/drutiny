@@ -18,7 +18,7 @@ class MarkdownHelper extends Parsedown
         return;
     }
 
-    protected function blockTable($Line, array $Block = null)
+    protected function blockTable($Line, ?array $Block = null)
     {
       $block = parent::blockTable($Line, $Block);
       if (isset($block['element']['name'])) {

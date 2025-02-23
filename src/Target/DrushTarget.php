@@ -74,7 +74,7 @@ class DrushTarget extends Target implements
     }
 
     /**
-     * Configure Drush service with a URL.
+     * {@inheritdoc}
      */
     protected function configureService(ServiceInterface $service):void
     {

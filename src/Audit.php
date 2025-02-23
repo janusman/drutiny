@@ -533,7 +533,7 @@ abstract class Audit implements AuditInterface
      * This is used exclusively when the configure() method is called.
      * This allows the audit to specify and validate inputs from a policy.
      */
-    protected function addParameter(string $name, int $mode = null, string $description = '', $default = null, ?Type $type = null): self
+    protected function addParameter(string $name, int|null $mode = null, string $description = '', $default = null, ?Type $type = null): self
     {
         $this->definition->addParameter(new Parameter(
             name: $name, 

@@ -180,7 +180,7 @@ class Drush implements ServiceInterface
         // of this command to be able to specify the preprocess function easily.
         return (new class ($command, $this->transport) {
             public function __construct(protected Process $cmd, protected TransportInterface $transport) {}
-            public function run(callable $outputProcessor = null)
+            public function run(?callable $outputProcessor = null)
             {
                 return $this->transport->send($this->cmd, $outputProcessor);
             }

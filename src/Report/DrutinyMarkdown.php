@@ -19,7 +19,7 @@ class DrutinyMarkdown implements MarkdownInterface
 {
     private $converter;
 
-    public function __construct(MarkdownHelper $converter = null)
+    public function __construct(?MarkdownHelper $converter = null)
     {
         $this->converter = $converter ?: new MarkdownHelper();
     }

@@ -110,7 +110,7 @@ trait ReportingCommandTrait
       /**
        * @return \Drutiny\Report\FormatInterface[]
        */
-      protected function getFormats(InputInterface $input, Profile $profile = null):array
+      protected function getFormats(InputInterface $input, Profile|null $profile, FormatFactory $formatFactory):array
       {
         foreach ($input->getOption('format') as $format_option) {
           $formats[$format_option] = $this->formatFactory->create($format_option, $profile->format[$format_option] ?? new FormatDefinition($format_option));

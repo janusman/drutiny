@@ -47,10 +47,8 @@ class Application extends BaseApplication
     /**
      * {@inheritdoc}
      */
-    public function doRun(InputInterface $input = null, OutputInterface $output = null)
+    public function doRun(InputInterface|null $input = null, ?OutputInterface $output = null)
     {
-      $this->checkForUpdates($output);
-
       if ($this->registrationErrors) {
           $this->renderRegistrationErrors($input, $output);
       }
@@ -140,10 +138,5 @@ class Application extends BaseApplication
         foreach ($this->registrationErrors as $error) {
             $this->doRenderThrowable($error, $output);
         }
-    }
-
-    private function checkForUpdates(OutputInterface $output = null)
-    {
-      
     }
 }

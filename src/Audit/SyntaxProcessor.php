@@ -73,7 +73,7 @@ class SyntaxProcessor {
     /**
      * Process an array of parameters for syntax evaluations.
      */
-    public function processParameters(array $parameters, array $contexts = [], InputDefinition $definition = null):array {
+    public function processParameters(array $parameters, array $contexts = [], ?InputDefinition $definition = null):array {
         // Ensure default values are set.
         if (isset($definition)) {
             foreach ($definition->getParameters() as $parameter) {

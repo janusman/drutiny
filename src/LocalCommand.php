@@ -39,7 +39,7 @@ class LocalCommand {
    * @param $ttl string
    *          The time to live the processed result will line in cache.
    */
-  public function run(Process|string $cmd, callable $outputProcessor = NULL, int $ttl = 3600)
+  public function run(Process|string $cmd, ?callable $outputProcessor = NULL, int $ttl = 3600)
   {
     $cmd = is_string($cmd) ? Process::fromShellCommandline($cmd) : $cmd;
     $cmd->setEnv(array_merge($this->envVars, $cmd->getEnv()));

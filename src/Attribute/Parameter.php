@@ -26,7 +26,7 @@ class Parameter {
         public readonly ?Type $type = null,
         public readonly ?array $enums = null,
         public readonly DynamicParameterType $preprocess = DynamicParameterType::NONE,
-        string|object $class = null
+        string|object|null $class = null
     ) {
         if ($class !== null) {
             $this->fromClass($class);
