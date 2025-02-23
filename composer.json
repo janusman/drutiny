@@ -18,7 +18,7 @@
     "require": {
         "cebe/php-openapi": "^1.7",
         "composer/semver": "^1.4.2",
-        "erusev/parsedown": "^1.6.3",
+        "erusev/parsedown": "dev-master#f7285e7",
         "fiasco/async": "^4.1-beta2",
         "fiasco/symfony-console-style-markdown": "^1.2",
         "fiasco/tabular-openapi": "dev-main",
