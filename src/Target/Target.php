@@ -16,6 +16,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Process\Process;
+use Symfony\Component\PropertyAccess\Exception\NoSuchPropertyException;
 
 /**
  * Basic function of a Target.
@@ -341,6 +342,8 @@ abstract class Target implements \ArrayAccess, TargetInterface
         } catch (NoSuchIndexException $e) {
             return false;
         } catch (DataNotFoundException $e) {
+            return false;
+        } catch (NoSuchPropertyException $e) {
             return false;
         }
     }
