@@ -56,7 +56,7 @@ class JSON extends FilesystemFormat implements FilesystemFormatInterface
           $this->data['totals'][$response->getType()] = $total+1;
         }
 
-        $this->data['total'] = array_sum($this->data['totals']);
+        $this->data['total'] = array_sum($this->data['totals'] ?? []);
 
         // Ensure the target name is present.
         $this->data['target']['targetName'] = $report->target->getTargetName();

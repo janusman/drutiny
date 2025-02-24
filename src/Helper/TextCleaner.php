@@ -20,7 +20,7 @@ class TextCleaner {
 
         if ($has_array === false) {
             $open = '{';
-            $open = '}';
+            $close = '}';
         }
         elseif ($has_object === false) {
             $open = '[';
